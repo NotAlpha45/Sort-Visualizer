@@ -57,7 +57,7 @@ function array_drawer(array, high_val_index, low_val_index) {
   }
 }
 
-// Swap function
+// Swaps values between two indices of an array
 async function swap(array, index1, index2) {
   //Delay the swapping for given time
   await delay_process(operation_speed);
@@ -70,6 +70,25 @@ async function swap(array, index1, index2) {
     base_amplitude,
     sound_enabled
   );
+}
+
+// Swaps values between two indices of two different arrays.
+async function swap2(primary_array, secondary_array, index1, index2) {
+  await delay_process(operation_speed);
+
+  high_val_index = index1;
+  low_val_index = index2;
+  play_sound(
+    oscelerator,
+    Math.abs(primary_array[index1] - secondary_array[index2]),
+    base_amplitude,
+    sound_enabled
+  );
+
+  [primary_array[index1], secondary_array[index2]] = [
+    secondary_array[index2],
+    primary_array[index1],
+  ];
 }
 
 function sort_caller(sort_function, array) {

@@ -7,7 +7,7 @@ let high_val_index,
   low_val_index,
   low_index_color = "red",
   high_index_color = "green";
-let operation_speed = 10; // Delay in milliseconds.
+let operation_speed = 20; // Delay in milliseconds.
 let array_size = 100,
   lowest_val = 20,
   highest_val = 400;
@@ -18,4 +18,4 @@ let oscelerator,
   min_frequency = 400,
   base_amplitude = 0.5,
   fade_interval = 0.5; //in seconds
-let sound_enabled = false;
+let sound_enabled = true;
