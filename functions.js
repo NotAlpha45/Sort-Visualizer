@@ -85,6 +85,9 @@ function sort_caller(sort_function, array) {
       break;
     case "selection":
       selectionSort(array);
+      break;
+    case "quick":
+      quickSort(array, 0, array.length - 1);
   }
   // sort_function(array);
 }
