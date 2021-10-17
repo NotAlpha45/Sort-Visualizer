@@ -14,6 +14,20 @@ function delay_process(time_ms) {
   return new Promise((resolve) => setTimeout(resolve, time_ms));
 }
 
+// Plays sound using the oscelerator object.
+function play_sound(oscelerator_obj, frequency, amplitude) {
+  
+  oscelerator_obj.start();
+
+  frequency = constrain(frequency * 50, min_frequency, max_frequency);
+
+  oscelerator_obj.freq(frequency);
+  oscelerator_obj.amp(amplitude);
+
+  // Slow down the amplitude to 0 over fade_interval seconds
+  oscelerator_obj.amp(0, fade_interval);
+}
+
 // Draws all the values in the array as a rectangle. Also adjusts width accordingly.
 // Note : high_val_index and low_val_index are the two indices of the array where the elements are
 // imbalanced and needs a swapping. high_val_index is the index of the highest value and low_val_index
@@ -25,13 +39,13 @@ function array_drawer(array, high_val_index, low_val_index) {
   for (let index = 0; index < array.length; index++) {
     fill("white");
     stroke("black");
-    strokeWeight(1);
+    strokeWeight(0.5);
 
     if (index == high_val_index) {
-      fill("green");
+      fill(high_index_color);
     }
     if (index == low_val_index) {
-      fill("red");
+      fill(low_index_color);
     }
 
     // The height of rectangle in negative as it points upwards.
@@ -48,5 +62,9 @@ async function swap(array, index1, index2) {
   [array[index1], array[index2]] = [array[index2], array[index1]];
   high_val_index = index1;
   low_val_index = index2;
+  play_sound(
+    oscelerator,
+    Math.abs(array[index1] - array[index2]),
+    base_amplitude
+  );
 }
-
