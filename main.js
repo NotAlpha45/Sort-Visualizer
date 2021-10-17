@@ -9,7 +9,7 @@ function setup() {
 
   random_array = random_array_generator(array_size, lowest_val, highest_val);
 
-  sort_caller("quick", random_array);
+  sort_caller("merge", random_array);
 }
 
 function draw() {

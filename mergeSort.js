@@ -56,7 +56,7 @@ async function mergeSort(array, left_index, right_index) {
 
   // Await for all of these threds to finish at the same time.
 
-  mergeSort(array, left_index, mid_index);
-  mergeSort(array, mid_index + 1, right_index);
-  merger(array, left_index, mid_index, right_index);
+  await mergeSort(array, left_index, mid_index);
+  await mergeSort(array, mid_index + 1, right_index);
+  await merger(array, left_index, mid_index, right_index);
 }
