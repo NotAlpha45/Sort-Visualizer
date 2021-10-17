@@ -1,0 +1,52 @@
+// Generates an array of given size filled with values between a given minimum and maximum.
+function random_array_generator(size, min_value, max_value) {
+  let random_array = [];
+  for (let counter = 0; counter < size; counter++) {
+    random_array.push(
+      Math.floor(Math.random() * (max_value - min_value + 1)) + min_value
+    );
+  }
+  return random_array;
+}
+
+// Delays process for a given amount of time (in milliseconds). Returns a promise that async functions can use.
+function delay_process(time_ms) {
+  return new Promise((resolve) => setTimeout(resolve, time_ms));
+}
+
+// Draws all the values in the array as a rectangle. Also adjusts width accordingly.
+// Note : high_val_index and low_val_index are the two indices of the array where the elements are
+// imbalanced and needs a swapping. high_val_index is the index of the highest value and low_val_index
+// is the index of the lowest value.
+function array_drawer(array, high_val_index, low_val_index) {
+  let rect_x_position = 0;
+  let rect_y_position = height;
+  let rect_width = Math.ceil(width / array.length);
+  for (let index = 0; index < array.length; index++) {
+    fill("white");
+    stroke("black");
+    strokeWeight(1);
+
+    if (index == high_val_index) {
+      fill("green");
+    }
+    if (index == low_val_index) {
+      fill("red");
+    }
+
+    // The height of rectangle in negative as it points upwards.
+    rect(rect_x_position, rect_y_position, rect_width, -array[index]);
+
+    rect_x_position += rect_width;
+  }
+}
+
+// Swap function
+async function swap(array, index1, index2) {
+  //Delay the swapping for given time
+  await delay_process(operation_speed);
+  [array[index1], array[index2]] = [array[index2], array[index1]];
+  high_val_index = index1;
+  low_val_index = index2;
+}
+
