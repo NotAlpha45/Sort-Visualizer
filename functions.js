@@ -107,6 +107,10 @@ function sort_caller(sort_function, array) {
       break;
     case "quick":
       quickSort(array, 0, array.length - 1);
+      break;
+    case "bucket":
+      bucketSort(array, array.length);
+      break;
   }
   // sort_function(array);
 }
