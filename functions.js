@@ -14,18 +14,19 @@ function delay_process(time_ms) {
   return new Promise((resolve) => setTimeout(resolve, time_ms));
 }
 
-// Plays sound using the oscelerator object.
-function play_sound(oscelerator_obj, frequency, amplitude) {
-  
-  oscelerator_obj.start();
+// Plays sound using the oscelerator object at given frequency and amplitude.
+function play_sound(oscelerator_obj, frequency, amplitude, is_enabled = true) {
+  if (is_enabled) {
+    oscelerator_obj.start();
 
-  frequency = constrain(frequency * 50, min_frequency, max_frequency);
+    frequency = constrain(frequency * 50, min_frequency, max_frequency);
 
-  oscelerator_obj.freq(frequency);
-  oscelerator_obj.amp(amplitude);
+    oscelerator_obj.freq(frequency);
+    oscelerator_obj.amp(amplitude);
 
-  // Slow down the amplitude to 0 over fade_interval seconds
-  oscelerator_obj.amp(0, fade_interval);
+    // Slow down the amplitude to 0 over fade_interval seconds
+    oscelerator_obj.amp(0, fade_interval);
+  }
 }
 
 // Draws all the values in the array as a rectangle. Also adjusts width accordingly.
@@ -36,6 +37,7 @@ function array_drawer(array, high_val_index, low_val_index) {
   let rect_x_position = 0;
   let rect_y_position = height;
   let rect_width = Math.ceil(width / array.length);
+
   for (let index = 0; index < array.length; index++) {
     fill("white");
     stroke("black");
@@ -65,6 +67,24 @@ async function swap(array, index1, index2) {
   play_sound(
     oscelerator,
     Math.abs(array[index1] - array[index2]),
-    base_amplitude
+    base_amplitude,
+    sound_enabled
   );
+}
+
+function sort_caller(sort_function, array) {
+  switch (sort_function) {
+    case "bubble":
+      bubbleSort(array);
+      break;
+    case "merge":
+      mergeSort(array, 0, array.length - 1);
+      break;
+    case "insertion":
+      insertionSort(array);
+      break;
+    case "selection":
+      selectionSort(array);
+  }
+  // sort_function(array);
 }
