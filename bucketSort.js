@@ -8,7 +8,7 @@ async function bucketSort(array, length) {
   for (let bucket_iterator = 0; bucket_iterator < length; bucket_iterator++) {
     buckets[bucket_iterator] = [];
   }
-  console.log(buckets);
+  console.table(buckets);
 
   for (let iterator = 0; iterator < length; iterator++) {
     let insertion_index = Math.floor(array[iterator] * length);
@@ -18,7 +18,7 @@ async function bucketSort(array, length) {
   // Sort individual buckets with built in sort function.
   // Note: this built in sort function is similar to the qsort function in C.
   for (let iterator = 0; iterator < length; iterator++) {
-    buckets[insertion_index].sort(function (a, b) {
+    buckets[iterator].sort(function (a, b) {
       return a - b;
     });
   }
