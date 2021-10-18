@@ -91,6 +91,20 @@ async function swap2(primary_array, secondary_array, index1, index2) {
   ];
 }
 
+// Assigns value of one index to the other
+async function assignment(array, index1, index2) {
+  await delay_process(operation_speed);
+  high_val_index = index1;
+  low_val_index = index2;
+  play_sound(
+    oscelerator,
+    Math.abs(array[index1] - array[index2]),
+    base_amplitude,
+    sound_enabled
+  );
+  array[index1] = array[index2];
+}
+
 function sort_caller(sort_function, array) {
   switch (sort_function) {
     case "bubble":
