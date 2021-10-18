@@ -2,7 +2,7 @@
 // sort and then merges them using merging method of merge sort.
 
 // We assume the run size as 32.
-let MINIMUM_MERGE = 32;
+let MINIMUM_MERGE = 128;
 
 async function minimum_run_length(array_length) {
   let run_len_offset = 0;
@@ -105,7 +105,6 @@ async function timSort(array) {
   }
 
   // Marging the runs by 2's power.
-
   for (
     let merge_size = min_run_length;
     merge_size < array_length;
