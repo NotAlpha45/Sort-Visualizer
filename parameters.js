@@ -18,4 +18,4 @@ let oscelerator,
   min_frequency = 400,
   base_amplitude = 0.5,
   fade_interval = 0.5; //in seconds
-let sound_enabled = true;
+let sound_enabled = false;

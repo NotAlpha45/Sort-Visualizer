@@ -92,7 +92,7 @@ async function merger(array, left_index, mid_index, right_index) {
 
 async function timSort(array) {
   let array_length = array.length;
-  let min_run_length = minimum_run_length(MINIMUM_MERGE);
+  let min_run_length = await minimum_run_length(MINIMUM_MERGE);
 
   //Sort individual "runs" with merge sort
 
