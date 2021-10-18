@@ -111,6 +111,9 @@ function sort_caller(sort_function, array) {
     case "heap":
       heapSort(array);
       break;
+    case "tim":
+      timSort(array);
+      break;
   }
   // sort_function(array);
 }
