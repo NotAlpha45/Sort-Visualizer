@@ -108,8 +108,8 @@ function sort_caller(sort_function, array) {
     case "quick":
       quickSort(array, 0, array.length - 1);
       break;
-    case "bucket":
-      bucketSort(array, array.length);
+    case "heap":
+      heapSort(array);
       break;
   }
   // sort_function(array);
