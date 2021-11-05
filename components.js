@@ -17,6 +17,22 @@ function slider_maker(
   return slider;
 }
 
+function button_maker(parent, position, label, func, style_attributes) {
+    button = createButton(label);
+    button.position(position[0], position[1]);
+  
+    // Will apply all the attributes mentioned in the style_attributes list accordingly.
+    style_attributes.forEach(function (attribute) {
+      button.style(attribute);
+    });
+    if(mouseIsPressed){
+        button.action.call(func);
+    }
+    // button.mousePressed(func);
+    button.parent(parent);
+  }
+  
+
 function translate_components(translation_width) {
   canvas_size[0] = translation_width;
   rect_width = Math.ceil(canvas_size[0] / array_size);

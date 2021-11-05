@@ -1,5 +1,4 @@
 function setup() {
-
   translate_components(windowWidth);
 
   drawing_canvas = createCanvas(canvas_size[0], canvas_size[1]);
@@ -24,7 +23,15 @@ function setup() {
 
   random_array = random_array_generator(array_size, lowest_val, highest_val);
 
-  sort_caller("heap", random_array);
+  button_maker(
+    canvas_parent,
+    [0, 30],
+    "Run",
+    sort_caller("heap", random_array),
+    run_button_attributes
+  );
+
+  // sort_caller("heap", random_array);
 }
 
 function draw() {
