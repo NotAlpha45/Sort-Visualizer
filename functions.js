@@ -34,9 +34,9 @@ function play_sound(oscelerator_obj, frequency, amplitude, is_enabled = true) {
 // imbalanced and needs a swapping. high_val_index is the index of the highest value and low_val_index
 // is the index of the lowest value.
 function array_drawer(array, high_val_index, low_val_index) {
+  //Starting positions of drawing rectangle.
   let rect_x_position = 0;
   let rect_y_position = height;
-  let rect_width = Math.ceil(width / array.length);
 
   for (let index = 0; index < array.length; index++) {
     fill("white");
@@ -51,7 +51,7 @@ function array_drawer(array, high_val_index, low_val_index) {
     }
 
     // The height of rectangle in negative as it points upwards.
-    rect(rect_x_position, rect_y_position, rect_width, -array[index]);
+    rect(rect_x_position, rect_y_position, rect_width, array[index]*rect_height_factor);
 
     rect_x_position += rect_width;
   }
