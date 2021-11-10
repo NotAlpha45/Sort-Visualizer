@@ -35,6 +35,7 @@ let run_button_attributes = [
   "font-weight: bold",
   "width: 5pc",
 ];
-let rect_width = Math.ceil(canvas_size[0] / array_size);
-let rect_height_factor = -(canvas_size[1] / highest_val);
-let rect_pos_offset = 100;
+// let rect_width = Math.ceil(canvas_size[0] / array_size);
+// let rect_height_factor = -(canvas_size[1] / highest_val);
+let rect_width, rect_height_factor;
+let rect_pos_offset = 120;

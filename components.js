@@ -33,6 +33,6 @@ function button_maker(parent, position, label, func, style_attributes) {
 
 function translate_components(translation_width) {
   canvas_size[0] = translation_width;
-  rect_width = Math.ceil((canvas_size[0]) / array_size);
+  rect_width = (canvas_size[0] - rect_pos_offset) / array_size;
   rect_height_factor = -(canvas_size[1] / highest_val);
 }

@@ -65,6 +65,8 @@ function array_drawer(array, high_val_index, low_val_index) {
 function array_maker() {
   array_size = int(array_size_slider.value());
   random_array = random_array_generator(array_size, lowest_val, highest_val);
+  rect_width = Math.ceil(canvas_size[0] / array_size);
+  rect_height_factor = -(canvas_size[1] / highest_val);
 }
 
 // Swaps values between two indices of an array

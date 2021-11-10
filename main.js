@@ -13,7 +13,7 @@ function setup() {
   array_size_slider = slider_maker(
     canvas_parent,
     50,
-    500,
+    200,
     100,
     10,
     [0, 0],
@@ -21,6 +21,7 @@ function setup() {
   );
 
   array_size_slider.input(array_maker);
+  // array_maker();
   // array_size = int(array_size_slider.value());
 
   // random_array = random_array_generator(array_size, lowest_val, highest_val);
