@@ -25,7 +25,7 @@ let frame_rate = 60;
 let array_size_slider;
 let arraysize_slider_attributes = ["width: 100px", "position: absolute"];
 let run_button_attributes = [
-  "padding: 5px 5px",
+  "padding: 2px 2px",
   "font-size: 18px",
   "border-radius: 10px",
   "box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2), 0 5px 15px 0 rgba(0,0,0,0.19)",
@@ -33,7 +33,8 @@ let run_button_attributes = [
   "text-align: center",
   "font-family: cursive",
   "font-weight: bold",
-  "width: 10pc",
+  "width: 5pc",
 ];
 let rect_width = Math.ceil(canvas_size[0] / array_size);
 let rect_height_factor = -(canvas_size[1] / highest_val);
+let rect_pos_offset = 100;

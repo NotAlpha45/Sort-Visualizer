@@ -1,3 +1,4 @@
+
 function setup() {
   translate_components(windowWidth);
 
@@ -11,23 +12,26 @@ function setup() {
 
   array_size_slider = slider_maker(
     canvas_parent,
-    10,
-    600,
+    50,
+    500,
     100,
     10,
     [0, 0],
     arraysize_slider_attributes
   );
 
-  array_size = int(array_size_slider.value());
+  array_size_slider.input(array_maker);
+  // array_size = int(array_size_slider.value());
 
-  random_array = random_array_generator(array_size, lowest_val, highest_val);
+  // random_array = random_array_generator(array_size, lowest_val, highest_val);
 
   button_maker(
     canvas_parent,
     [0, 30],
     "Run",
-    sort_caller("heap", random_array),
+    function () {
+      sort_caller("heap", random_array);
+    },
     run_button_attributes
   );
 

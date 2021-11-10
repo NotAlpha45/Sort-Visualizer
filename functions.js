@@ -35,7 +35,7 @@ function play_sound(oscelerator_obj, frequency, amplitude, is_enabled = true) {
 // is the index of the lowest value.
 function array_drawer(array, high_val_index, low_val_index) {
   //Starting positions of drawing rectangle.
-  let rect_x_position = 0;
+  let rect_x_position = 0 + rect_pos_offset;
   let rect_y_position = height;
 
   for (let index = 0; index < array.length; index++) {
@@ -51,10 +51,20 @@ function array_drawer(array, high_val_index, low_val_index) {
     }
 
     // The height of rectangle in negative as it points upwards.
-    rect(rect_x_position, rect_y_position, rect_width, array[index]*rect_height_factor);
+    rect(
+      rect_x_position,
+      rect_y_position,
+      rect_width,
+      array[index] * rect_height_factor
+    );
 
     rect_x_position += rect_width;
   }
+}
+
+function array_maker() {
+  array_size = int(array_size_slider.value());
+  random_array = random_array_generator(array_size, lowest_val, highest_val);
 }
 
 // Swaps values between two indices of an array

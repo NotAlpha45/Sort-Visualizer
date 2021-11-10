@@ -25,16 +25,14 @@ function button_maker(parent, position, label, func, style_attributes) {
     style_attributes.forEach(function (attribute) {
       button.style(attribute);
     });
-    if(mouseIsPressed){
-        button.action.call(func);
-    }
-    // button.mousePressed(func);
+    
+    button.mousePressed(func);
     button.parent(parent);
   }
   
 
 function translate_components(translation_width) {
   canvas_size[0] = translation_width;
-  rect_width = Math.ceil(canvas_size[0] / array_size);
+  rect_width = Math.ceil((canvas_size[0]) / array_size);
   rect_height_factor = -(canvas_size[1] / highest_val);
 }
