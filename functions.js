@@ -9,6 +9,7 @@ function random_array_generator(size, min_value, max_value) {
   return random_array;
 }
 
+
 // Delays process for a given amount of time (in milliseconds). Returns a promise that async functions can use.
 function delay_process(time_ms) {
   return new Promise((resolve) => setTimeout(resolve, time_ms));
@@ -39,7 +40,7 @@ function array_drawer(array, high_val_index, low_val_index) {
   let rect_y_position = height;
 
   for (let index = 0; index < array.length; index++) {
-    fill("white");
+    fill(primary_array_color);
     stroke("black");
     strokeWeight(0.5);
 
@@ -62,11 +63,13 @@ function array_drawer(array, high_val_index, low_val_index) {
   }
 }
 
+// Initially sets the drawing of rectangles as array elements.
 function array_maker() {
   array_size = int(array_size_slider.value());
   random_array = random_array_generator(array_size, lowest_val, highest_val);
-  rect_width = Math.ceil(canvas_size[0] / array_size);
+  rect_width = (canvas_size[0] - rect_pos_offset) / array_size;
   rect_height_factor = -(canvas_size[1] / highest_val);
+  loop_has_started = true;
 }
 
 // Swaps values between two indices of an array

@@ -1,3 +1,5 @@
+// Functions for handling all the components in the board.
+
 function slider_maker(
   parent,
   min_value,
@@ -18,18 +20,45 @@ function slider_maker(
 }
 
 function button_maker(parent, position, label, func, style_attributes) {
-    button = createButton(label);
-    button.position(position[0], position[1]);
-  
-    // Will apply all the attributes mentioned in the style_attributes list accordingly.
-    style_attributes.forEach(function (attribute) {
-      button.style(attribute);
-    });
-    
-    button.mousePressed(func);
-    button.parent(parent);
-  }
-  
+  button = createButton(label);
+  button.position(position[0], position[1]);
+
+  // Will apply all the attributes mentioned in the style_attributes list accordingly.
+  style_attributes.forEach(function (attribute) {
+    button.style(attribute);
+  });
+
+  button.mousePressed(func);
+  button.parent(parent);
+}
+
+function element_maker(parent, header_size, text, pos, element_attributes) {
+  element = createElement(header_size, text);
+  element.parent(parent);
+  element.position(pos[0], pos[1]);
+  // element.style("font-family: cursive");
+  element_attributes.forEach(function (attribute) {
+    element.style(attribute);
+  });
+}
+
+//Creates dropdown list
+function dropdown_maker(parent, position, options, default_value, style_attributes) {
+  dropdown = createSelect();
+  dropdown.position(position[0], position[1]);
+
+  options.forEach(function (option) {
+    dropdown.option(option);
+  });
+
+  dropdown.selected(default_value);
+
+  style_attributes.forEach(function (attribute) {
+    dropdown.style(attribute);
+  })
+
+  return dropdown;
+}
 
 function translate_components(translation_width) {
   canvas_size[0] = translation_width;

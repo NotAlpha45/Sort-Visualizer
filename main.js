@@ -1,4 +1,3 @@
-
 function setup() {
   translate_components(windowWidth);
 
@@ -10,17 +9,63 @@ function setup() {
 
   oscelerator = new p5.Oscillator(oscelerator_wave_type);
 
+  element_maker(
+    canvas_parent,
+    "h2",
+    `Array Size:`,
+    [20, 0],
+    size_element_attributes
+  );
+
   array_size_slider = slider_maker(
     canvas_parent,
     50,
     200,
     100,
     10,
-    [0, 0],
+    [20, 50],
     arraysize_slider_attributes
   );
 
+  element_maker(
+    canvas_parent,
+    "h2",
+    "Sorting Speed: ",
+    [20, 60],
+    size_element_attributes
+  );
+
+  operation_speed_slider = slider_maker(
+    canvas_parent,
+    10,
+    100,
+    20,
+    10,
+    [20, 110],
+    arraysize_slider_attributes
+  );
+
+  sort_dropdown_list = dropdown_maker(
+    canvas_parent,
+    [30, 220],
+    sort_list,
+    current_selected_sort,
+    sort_dropdown_attributes
+  );
+
+  if (!loop_has_started) {
+    random_array = random_array_generator(array_size, lowest_val, highest_val);
+  }
+
   array_size_slider.input(array_maker);
+  operation_speed_slider.input(function () {
+    operation_speed = int(operation_speed_slider.value());
+  });
+
+  sort_dropdown_list.changed(function () {
+    current_selected_sort = sort_dropdown_list.value();
+  });
+
   // array_maker();
   // array_size = int(array_size_slider.value());
 
@@ -28,10 +73,10 @@ function setup() {
 
   button_maker(
     canvas_parent,
-    [0, 30],
+    [20, 180],
     "Run",
     function () {
-      sort_caller("heap", random_array);
+      sort_caller(current_selected_sort, random_array);
     },
     run_button_attributes
   );

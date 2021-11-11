@@ -1,5 +1,20 @@
 // Parameters for sort functionality and drawing.
 let random_array = [];
+
+const sort_list = [
+  "bubble",
+  "merge",
+  "insertion",
+  "selection",
+  "quick",
+  "heap",
+  "tim",
+];
+
+let current_selected_sort = "quick";
+
+let sort_dropdown_list;
+
 let high_val_index,
   low_val_index,
   low_index_color = "red",
@@ -8,7 +23,8 @@ let operation_speed = 20; // Delay in milliseconds.
 let array_size = 100,
   lowest_val = 20,
   highest_val = 800;
-let background_color = "teal";
+const background_color = "white",
+  primary_array_color = "teal";
 let oscelerator,
   oscelerator_wave_type = "square",
   max_frequency = 1000,
@@ -22,9 +38,10 @@ let drawing_canvas;
 let canvas_size = [1000, 400],
   canvas_parent = "canvas_div";
 let frame_rate = 60;
-let array_size_slider;
+let array_size_slider, operation_speed_slider;
 let arraysize_slider_attributes = ["width: 100px", "position: absolute"];
-let run_button_attributes = [
+
+const run_button_attributes = [
   "padding: 2px 2px",
   "font-size: 18px",
   "border-radius: 10px",
@@ -35,7 +52,19 @@ let run_button_attributes = [
   "font-weight: bold",
   "width: 5pc",
 ];
+
+const size_element_attributes = [
+  "font-family: cursive",
+  "color: blue",
+  "font-size: 20px",
+  "font-weight: bold",
+  "position: absolute",
+];
+
+const sort_dropdown_attributes = ["font-family: cursive", "font-size: 18px"];
+
 // let rect_width = Math.ceil(canvas_size[0] / array_size);
 // let rect_height_factor = -(canvas_size[1] / highest_val);
 let rect_width, rect_height_factor;
-let rect_pos_offset = 120;
+const rect_pos_offset = 180;
+let loop_has_started = false;
