@@ -60,6 +60,20 @@ function dropdown_maker(parent, position, options, default_value, style_attribut
   return dropdown;
 }
 
+function checkbox_maker(parent, label, default_val, position, func, style_attributes) {
+  checkbox = createCheckbox(label, default_val);
+  
+  style_attributes.forEach(function (attribute) {
+    checkbox.style(attribute);
+  })
+
+  checkbox.parent(parent);
+  checkbox.position(position[0], position[1]);
+  checkbox.mousePressed(func);
+
+  return checkbox;
+}
+
 function translate_components(translation_width) {
   canvas_size[0] = translation_width;
   rect_width = (canvas_size[0] - rect_pos_offset) / array_size;

@@ -61,10 +61,26 @@ const size_element_attributes = [
   "position: absolute",
 ];
 
+const sorting_speed_element_attributes = [
+  "font-family: cursive",
+  "color: brown",
+  "font-size: 20px",
+  "font-weight: bold",
+  "position: absolute",
+];
+
 const sort_dropdown_attributes = ["font-family: cursive", "font-size: 18px"];
+
+let sound_checkbox;
+const sound_checkbox_attributes = [
+  "font-size: 18px",
+  "color: magenta",
+  "font-weight: bold",
+  "font-family : hack"
+]
 
 // let rect_width = Math.ceil(canvas_size[0] / array_size);
 // let rect_height_factor = -(canvas_size[1] / highest_val);
 let rect_width, rect_height_factor;
-const rect_pos_offset = 180;
+const rect_pos_offset = 190;
 let loop_has_started = false;

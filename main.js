@@ -12,7 +12,7 @@ function setup() {
   element_maker(
     canvas_parent,
     "h2",
-    `Array Size:`,
+    "Array Size 📏",
     [20, 0],
     size_element_attributes
   );
@@ -30,9 +30,9 @@ function setup() {
   element_maker(
     canvas_parent,
     "h2",
-    "Sorting Speed: ",
+    "Sorting Speed 🏃‍♂️",
     [20, 60],
-    size_element_attributes
+    sorting_speed_element_attributes
   );
 
   operation_speed_slider = slider_maker(
@@ -53,6 +53,17 @@ function setup() {
     sort_dropdown_attributes
   );
 
+  sound_checkbox = checkbox_maker(
+    canvas_parent,
+    "Sound enabled",
+    false,
+    [20, 190],
+    function () {
+      sound_enabled = true;
+    },
+    sound_checkbox_attributes
+  );
+
   if (!loop_has_started) {
     random_array = random_array_generator(array_size, lowest_val, highest_val);
   }
@@ -66,14 +77,9 @@ function setup() {
     current_selected_sort = sort_dropdown_list.value();
   });
 
-  // array_maker();
-  // array_size = int(array_size_slider.value());
-
-  // random_array = random_array_generator(array_size, lowest_val, highest_val);
-
   button_maker(
     canvas_parent,
-    [20, 180],
+    [20, 230],
     "Run",
     function () {
       sort_caller(current_selected_sort, random_array);
