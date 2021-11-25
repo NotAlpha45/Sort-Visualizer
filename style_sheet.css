@@ -1,7 +1,16 @@
 .container1 {
   position: relative;
   text-align: center;
+  width: 100%;
 }
+
+.container2 iframe {
+  position: relative;
+  width: 100%;
+  height: 800px;
+  top: 30px;
+}
+
 .description {
   position: relative;
   text-align: center;
