@@ -39,7 +39,7 @@ function setup() {
     canvas_parent,
     10,
     100,
-    20,
+    operation_speed,
     10,
     [20, 110],
     arraysize_slider_attributes

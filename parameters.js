@@ -19,7 +19,7 @@ let high_val_index,
   low_val_index,
   low_index_color = "red",
   high_index_color = "green";
-let operation_speed = 20; // Delay in milliseconds.
+let operation_speed = 40; // Delay in milliseconds.
 let array_size = 100,
   lowest_val = 20,
   highest_val = 800;
