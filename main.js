@@ -1,6 +1,7 @@
 function setup() {
+  
+  canvas_size[1] = windowHeight - 100;
   translate_components(windowWidth);
-
   drawing_canvas = createCanvas(canvas_size[0], canvas_size[1]);
   drawing_canvas.parent(canvas_parent);
 
@@ -38,7 +39,7 @@ function setup() {
   operation_speed_slider = slider_maker(
     canvas_parent,
     10,
-    100,
+    110,
     operation_speed,
     10,
     [20, 110],
