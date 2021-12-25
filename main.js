@@ -31,7 +31,7 @@ function setup() {
   element_maker(
     canvas_parent,
     "h2",
-    "Sorting Speed 🏃‍♂️",
+    "Slowdown 🏃‍♂️",
     [20, 60],
     sorting_speed_element_attributes
   );
